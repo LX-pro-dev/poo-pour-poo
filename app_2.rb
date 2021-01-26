@@ -49,9 +49,11 @@ while(@player1.life_points >0 && (@player2.life_points > 0 || @player3.life_poin
 
   rep = gets.chomp
   puts rep
-  #while(rep != 'a' || rep != 's' || rep != '0' || rep != '1')
-  #  puts "Tu as des problèmes avec tes doigts ? Tu tapes n'imp mon gars ! \n c'est a, s, 0 ou 1 !!!"
-  #end
+  while(rep != 'a' && rep != 's'  && rep != '0' && rep != '1') do
+    puts "T'as des problèmes avec tes doigts ? Tu tapes n'imp' mon gars !"
+    puts "c'est a, s, 0 ou 1 !!!"
+    rep = gets.chomp
+  end
 
   if rep == 'a'
     @player1.search_weapon
@@ -62,7 +64,6 @@ while(@player1.life_points >0 && (@player2.life_points > 0 || @player3.life_poin
   else
     @player1.attacks(@player3)
   end
-
   
   arr_ennemies.each do |ennemy|
     if(ennemy.life_points > 0)
@@ -71,10 +72,11 @@ while(@player1.life_points >0 && (@player2.life_points > 0 || @player3.life_poin
     end
   end
 end
+
 if(@player1.life_points > 0) 
   puts "You win !"
-else puts "You loose !"
+else 
+  puts "You loose !"
 end
-
 
 binding.pry
