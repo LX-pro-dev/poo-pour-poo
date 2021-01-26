@@ -29,7 +29,10 @@ end
 
 puts ""
 puts "Que le combat commence !"
+i = 1
 while(@player1.life_points >0 && (@player2.life_points > 0 || @player3.life_points > 0))
+  puts ""
+  puts "Round #{i} ! Fight !"
   puts ""
   @player1.show_state
   puts ""
@@ -64,13 +67,20 @@ while(@player1.life_points >0 && (@player2.life_points > 0 || @player3.life_poin
   else
     @player1.attacks(@player3)
   end
-  
+  puts ""
   arr_ennemies.each do |ennemy|
     if(ennemy.life_points > 0)
+      puts ""
       puts "#{ennemy.name} t'attaque !"
       ennemy.attacks(@player1)
     end
   end
+  i += 1
+  puts ""
+  puts "Pour continuer, tape sur ce que tu veux ..."
+  puts "mais fais attention à pas taper trop fort quand même... _JanBlag1"
+  gets.chomp
+  puts ""
 end
 
 if(@player1.life_points > 0) 
@@ -78,5 +88,6 @@ if(@player1.life_points > 0)
 else 
   puts "You loose !"
 end
+puts "La partie est belle et bien finie !"
 
 binding.pry
